@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">AAPTlLocation</string>
+    <string name="get_location">Obtener Ubicacion</string>
+    <string name="android_image">Android Image</string>
+    <string name="textview_hint">Click en el boton para obtener ubicacion</string>
+    <string name="location_text">Latitud: %1$.4f \n Longitud: %2$.4f \n Timestamp: %3$tr</string>
+</resources>
