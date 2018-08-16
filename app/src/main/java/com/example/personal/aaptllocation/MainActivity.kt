@@ -11,7 +11,7 @@ import com.tbruyelle.rxpermissions2.RxPermissions
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.toast
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(),GetAddressTask.OnTaskCompleted {
 
     lateinit var permissions :RxPermissions
     lateinit var location: Location
@@ -29,7 +29,6 @@ class MainActivity : AppCompatActivity() {
             permissions.request(Manifest.permission.ACCESS_FINE_LOCATION)
                     .subscribe {
                         if (it) {
-                            toast("acceso permitido")
                             getLocation()
                         } else {
                             toast("acceso denegado")
@@ -43,14 +42,14 @@ class MainActivity : AppCompatActivity() {
     fun getLocation() {
         fusedLocationProviderClient.lastLocation.addOnSuccessListener {
             if (it != null) {
-                location = it
-                textview_location.text = getString(R.string.location_text,
-                        location.latitude,
-                        location.longitude,
-                        location.time)
-            }else{
-                textview_location.text = "Sin ubicacion"
+                GetAddressTask(this,this).execute(it)
+                textview_location.text = "Adquiriendo Direccion..."
             }
+
         }
+    }
+
+    override fun OnTaskCompleted(result: String) {
+        textview_location.text = getString(R.string.direccion,result,System.currentTimeMillis())
     }
 }
