@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">AAPTlLocation</string>
     <string name="get_location">Obtener Ubicacion</string>
+    <string name="stop_location">Detener Busqueda</string>
+    <string name="no_location">Sin Ubicacion</string>
     <string name="android_image">Android Image</string>
-    <string name="textview_hint">Click en el boton para obtener ubicacion</string>
+    <string name="textview_hint">Click en el boton para empezar a obtener la ubicacion</string>
     <string name="location_text">Latitud: %1$.4f \n Longitud: %2$.4f \n Timestamp: %3$tr</string>
     <string name="direccion">Direccion: %1$s \n Timestamp: %2$tr</string>
 </resources>
